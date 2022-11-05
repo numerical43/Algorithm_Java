@@ -19,10 +19,9 @@ public class Main {
             }
         }
 
-        for (int i = (n - 1); i >= 0; i--) {
-            if ((str.charAt(i) >= 'a' && str.charAt(i) <= 'z') || (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z')) {
-                result[i] = array[count];
-                count--;
+        for (int i = 0; i < n; i++) {
+            if ((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z')) {
+                result[i] = array[--count];
             }
         }
 
