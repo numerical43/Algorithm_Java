@@ -24,6 +24,7 @@ public class Main {
             }
             sb.append(rank).append(" ");
         }
+
         System.out.print(sb);
     }
 }
