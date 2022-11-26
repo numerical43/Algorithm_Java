@@ -1,42 +1,36 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.StringTokenizer;
-import java.util.TreeSet;
+import java.util.HashMap;
 
 public class Main {
     public static void main (String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        int[] arr = new int[n];
-        int result = -1;
+        String strS = br.readLine();
+        String strT = br.readLine();
+        int result = 0;
+        HashMap<Character, Integer> mapS = new HashMap<>();
+        HashMap<Character, Integer> mapT = new HashMap<>();
 
-        for (int i = 0; i < n; i++)
-            arr[i] = Integer.parseInt(st.nextToken());
+        for (char c : strT.toCharArray())
+            mapT.put(c, mapT.getOrDefault(c, 0) + 1);
 
-        TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+        int lengthT = strT.length() - 1;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = (i + 1); j < n; j++) {
-                for (int l = (j + 1); l < n; l++)
-                    treeSet.add(arr[i] + arr[j] + arr[l]);
-            }
+        for (int i = 0; i < lengthT; i++)
+            mapS.put(strS.charAt(i), mapS.getOrDefault(strS.charAt(i), 0) + 1);
+
+        int lt = 0;
+
+        for (int rt = lengthT;rt < strS.length(); rt++) {
+            mapS.put(strS.charAt(rt), mapS.getOrDefault(strS.charAt(rt), 0) + 1);
+            if (mapS.equals(mapT))
+                result++;
+            mapS.put(strS.charAt(lt), mapS.get(strS.charAt(lt)) - 1);
+            if (mapS.get(strS.charAt(lt)) == 0)
+                mapS.remove(strS.charAt(lt));
+            lt++;
         }
-
-        int count = 0;
-
-        for (int t : treeSet) {
-            count++;
-            if (count == k) {
-                result = t;
-                break;
-            }
-        }
-
         System.out.print(result);
     }
 }
