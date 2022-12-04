@@ -18,3 +18,6 @@ Section4 : HashMap, HashSet, TreeSet
 <pre>
 Section5 : Stack, Queue
 </pre>
+<pre>
+Section6 : Sorting and Searching
+</pre>
