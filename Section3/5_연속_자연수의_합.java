@@ -15,6 +15,7 @@ public class Main {
             if (n % count == 0)
                 result++;
         }
+
         System.out.print(result);
     }
 }
