@@ -16,8 +16,9 @@ public class Main {
             map.put(c, map.getOrDefault(c, 0) + 1);
 
         for (char key : map.keySet()) {
-            if (map.get(key) > max) {
-                max = map.get(key);
+            int nowValue = map.get(key);
+            if (nowValue > max) {
+                max = nowValue;
                 result = key;
             }
         }
