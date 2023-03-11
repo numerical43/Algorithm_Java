@@ -10,16 +10,16 @@ public class Main {
             StringBuilder sb = new StringBuilder();
 
             for (int i = 1; i <= n; i++) {
-                if (ch[i] == 1)
+                if (array[i] == 1)
                     sb.append(i).append(" ");
             }
             if (sb.length() > 0)
                 System.out.println(sb);
         }
         else {
-            ch[L] = 1;
+            array[L] = 1;
             DFS(L + 1);
-            ch[L] = 0;
+            array[L] = 0;
             DFS(L + 1);
         }
     }

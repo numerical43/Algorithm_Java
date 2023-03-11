@@ -10,8 +10,8 @@ public class Main {
     static Queue<Integer> queue = new LinkedList<>();
 
     public static int BFS (int s, int e) {
-        ch = new int[10001];
-        ch[s] = 1;
+        array = new int[10001];
+        array[s] = 1;
         queue.offer(s);
         int L = 0;
 
@@ -30,8 +30,8 @@ public class Main {
                     int nx = x + dis[j];
                     if (nx == e)
                         return L + 1;
-                    if ((nx >= 1) && (nx <= 10000) && (ch[nx] == 0)) {
-                        ch[nx] = 1;
+                    if ((nx >= 1) && (nx <= 10000) && (array[nx] == 0)) {
+                        array[nx] = 1;
                         queue.offer(nx);
                     }
                 }
